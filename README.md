@@ -17,7 +17,7 @@ To be added.
 
 All project documents are in the [Project Wiki](../../wiki/Home)
 
-* [[Vision Statement]]
-* [[Requirements]]
-* [[Project Plan]]
-* [[Iteration 1 Plan]] and [[Task Board]] 
+* [Vision Statement](../../wiki/Vision%20Statement)
+* [Requirements](../../wiki/Requirements)
+* [Project Plan](../../wiki/Project%20Plan)
+* [Iteration 1 Plan](../../wiki/Iteration%20-1-%20Plan) and [Task Board](../../wiki/Task%20Board)
