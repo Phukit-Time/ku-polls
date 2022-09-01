@@ -1,4 +1,4 @@
-# ku-polls
+## ku-polls
 Web application for polls and surveys at kasetsart university
 Project documentation for the KU polls web application project.
 
