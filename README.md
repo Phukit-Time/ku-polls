@@ -19,5 +19,5 @@ All project documents are in the [Project Wiki](../../wiki/Home)
 
 * [Vision Statement](../../wiki/Vision%20Statement)
 * [Requirements](../../wiki/Requirements)
-* [Project Plan](../../wiki/Project%20Plan)
-* [Iteration 1 Plan](../../wiki/Iteration%201%20Plan) and [Task Board](../../wiki/Task%20Board)
+* [Project Plan](../../wiki/Development%20Plan)
+* [Iteration 1 Plan](../../wiki/Iteration%201%20Plan) and [Task Board](https://github.com/users/Phukit-Time/projects/2/views/2?layout=board)
