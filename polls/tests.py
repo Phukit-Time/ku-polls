@@ -7,6 +7,19 @@ from django.urls import reverse
 from .models import Question
 
 
+def create_question(question_text, days, end=None):
+    """
+    Create a question with the given `question_text` and published the
+    given number of `days` offset to now (negative for questions published
+    in the past, positive for questions that have yet to be published).
+    """
+    time = timezone.now() + datetime.timedelta(days=days)
+    if end is None:
+        return Question.objects.create(question_text=question_text, pub_date=time)
+    end = timezone.now() + datetime.timedelta(days=end)
+    return Question.objects.create(question_text=question_text, pub_date=time, end_date=end)
+
+
 class QuestionModelTests(TestCase):
 
     def test_was_published_recently_with_future_question(self):
@@ -43,29 +56,18 @@ class QuestionModelTests(TestCase):
 
     def test_pub_date_is_exactly_pub_date_or_end_date(self):
         time = timezone.now()
-        question = Question(pub_date=time)
-        question2 = Question(end_date=time)
+        question = Question(pub_date=time, end_date=time)
         self.assertIs(question.can_vote(), True)
-        self.assertIs(question2.can_vote(), True)
 
     def test_current_date_is_after_end_date(self):
-        time = timezone.now() - datetime.timedelta(days=1)
-        question = Question(end_date=time)
+        time = timezone.now() - datetime.timedelta(days=-10)
+        time2 = timezone.now() - datetime.timedelta(days=-1)
+        question = Question(pub_date=time, end_date=time2)
         self.assertIs(question.can_vote(), False)
 
     def test_no_end_date(self):
         question = Question(pub_date=timezone.now())
         self.assertIs(question.can_vote(), True)
-
-
-def create_question(question_text, days):
-    """
-    Create a question with the given `question_text` and published the
-    given number of `days` offset to now (negative for questions published
-    in the past, positive for questions that have yet to be published).
-    """
-    time = timezone.now() + datetime.timedelta(days=days)
-    return Question.objects.create(question_text=question_text, pub_date=time)
 
 
 class QuestionIndexViewTests(TestCase):
