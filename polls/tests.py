@@ -50,22 +50,26 @@ class QuestionModelTests(TestCase):
         self.assertIs(recent_question.was_published_recently(), True)
 
     def test_pub_date_with_future_question(self):
+        """test when poll is not publish yet user should not be able to vote"""
         time = timezone.now() + datetime.timedelta(days=30)
         future_question = Question(pub_date=time)
         self.assertIs(future_question.can_vote(), False)
 
     def test_pub_date_is_exactly_pub_date_or_end_date(self):
+        """test you can vote right exact time when vote open or close"""
         time = timezone.now()
         question = Question(pub_date=time, end_date=time)
         self.assertIs(question.can_vote(), True)
 
     def test_current_date_is_after_end_date(self):
+        """test poll that already expired should not be able to vote"""
         time = timezone.now() - datetime.timedelta(days=-10)
         time2 = timezone.now() - datetime.timedelta(days=-1)
         question = Question(pub_date=time, end_date=time2)
         self.assertIs(question.can_vote(), False)
 
     def test_no_end_date(self):
+        """test question that have no end date should be able to vote after the published date"""
         question = Question(pub_date=timezone.now())
         self.assertIs(question.can_vote(), True)
 
@@ -132,7 +136,7 @@ class QuestionDetailViewTests(TestCase):
     def test_future_question(self):
         """
         The detail view of a question with a pub_date in the future
-        returns a 404 not found.
+        returns a 302 not found.
         """
         future_question = create_question(question_text='Future question.', days=5)
         url = reverse('polls:detail', args=(future_question.id,))

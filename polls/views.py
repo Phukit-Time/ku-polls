@@ -24,6 +24,10 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
     def dispatch(self, request, *args, **kwargs):
+        """
+        If someone navigates to a poll detail page when voting is not allowed,
+        redirect them to the polls index page and show an error message on the page
+        """
         question = get_object_or_404(Question, pk=self.kwargs['pk'])
         if not question.can_vote():
             messages.error(request, "Can't Vote")
