@@ -1,10 +1,17 @@
 <h1>{{ question.question_text }}</h1>
 
-<ul style="list-style:none; list-style-type: disc; columns:2;">
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
-    <li>{{ choice.votes }}</li>
-{% endfor %}
-</ul>
+
+<table style="width:100%">
+    <tr>
+        <td>Choice</td>
+        <td>Votes</td>
+    </tr>
+    {% for choice in question.choice_set.all %}
+    <tr>
+        <td>{{ choice.choice_text }}</td>
+        <td>{{ choice.votes }}</td>
+    </tr>
+    {% endfor %}
+</table>
 
 <a href="{% url 'polls:index' %}">Back to list of Polls</a>
