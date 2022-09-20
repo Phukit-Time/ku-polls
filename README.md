@@ -11,7 +11,11 @@ This application is part of the [Individual Software Process](https://cpske.gith
 
 ## How to Install and Run
 
-To be added.
+1. clone this repository
+
+`https://github.com/Phukit-Time/ku-polls.git`
+
+2. type python manage.py runserver
 
 ## Project Documents
 
@@ -19,5 +23,8 @@ All project documents are in the [Project Wiki](../../wiki/Home)
 
 * [Vision Statement](../../wiki/Vision%20Statement)
 * [Requirements](../../wiki/Requirements)
-* [Project Plan](../../wiki/Development%20Plan)
-* [Iteration 1 Plan](../../wiki/Iteration%201%20Plan) and [Task Board](https://github.com/users/Phukit-Time/projects/2/views/2?layout=board)
+* [Project Plan](../../wiki/Project%20Plan)
+* [Iteration 1 Plan](../../wiki/Iteration%20-1-%20Plan) and [Task Board](../../wiki/Task%20Board)
+* [Iteration 2 Plan](../../wiki/Iteration%20-2-%20Plan)
+* [Iteration 3 Plan](../../wiki/Iteration%20-3-%20Plan)
+
