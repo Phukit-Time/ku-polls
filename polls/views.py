@@ -54,4 +54,10 @@ def vote(request, question_id):
     else:
         # selected_choice.votes += 1
         # selected_choice.save()
+        try:
+            user_vote = Vote.objects.get(user=request.user, choice__question=question)
+            user_vote.choice = selected_choice
+            user_vote.save()
+        except Vote.DoesNotExist:
+            Vote.objects.create(choice=selected_choice, user=request.user)
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
