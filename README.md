@@ -15,7 +15,13 @@ This application is part of the [Individual Software Process](https://cpske.gith
 
 `https://github.com/Phukit-Time/ku-polls.git`
 
-2. type python manage.py runserver
+2. open the file in cmd then run these command in order
+
+- `python manage.py migrate`
+- `python manage.py loaddata data/polls.json data/user.json`
+- `env\Scripts\activate`
+- `pip install -r requirements.txt`
+- `python manage.py runserver`
 
 ## Project Documents
 
@@ -27,3 +33,4 @@ All project documents are in the [Project Wiki](../../wiki/Home)
 * [Iteration 1 Plan](../../wiki/Iteration%20-1-%20Plan) and [Task Board](../../wiki/Task%20Board)
 * [Iteration 2 Plan](../../wiki/Iteration%20-2-%20Plan)
 * [Iteration 3 Plan](../../wiki/Iteration%20-3-%20Plan)
+* [Iteration 4 Plan](../../wiki/Iteration%20-4-%20Plan)
