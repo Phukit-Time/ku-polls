@@ -34,11 +34,8 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      env:
-        DJANGO_SETTINGS_MODULE: mysite.settings
-      run: pytest .
-    - name: Run tests and collect coverage
-      run: pytest --cov .
+    - name: Test with coverage
+      run: |
+        coverage run manage.py test
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3.1.1
