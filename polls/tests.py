@@ -49,12 +49,6 @@ class QuestionModelTests(TestCase):
         future_question = Question(pub_date=time)
         self.assertIs(future_question.can_vote(), False)
 
-    def test_pub_date_is_exactly_pub_date_or_end_date(self):
-        """Test you can vote right exact time when vote open or close."""
-        time = timezone.now()
-        question = Question(pub_date=time, end_date=time)
-        self.assertIs(question.can_vote(), True)
-
     def test_current_date_is_after_end_date(self):
         """Test poll that already expired should not be able to vote."""
         time = timezone.now() - datetime.timedelta(days=-10)
