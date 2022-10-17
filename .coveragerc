@@ -1,6 +1,10 @@
 [run]
+# measure branch coverage
+branch = True
 # omit uninteresting files
 omit =
-    manage.py
+    */__init__.py
+    polls/migrations/*.py
+    polls/tests/*.py
     mysite/*
-    */migrations/*
+    manage.py
