@@ -1,3 +1,4 @@
+[![codecov](https://codecov.io/gh/Phukit-Time/ku-polls/branch/main/graph/badge.svg?token=PT37KZWCAV)](https://codecov.io/gh/Phukit-Time/ku-polls)
 ## ku-polls
 Web application for polls and surveys at kasetsart university
 Project documentation for the KU polls web application project.
