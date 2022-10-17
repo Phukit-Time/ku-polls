@@ -36,7 +36,3 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittest
       run: python -m unittest
-    - name: Codecov
-      run: coverage run -m unittest
-    - name: Codecov Report
-      uses: codecov/codecov-action@v3.1.1
